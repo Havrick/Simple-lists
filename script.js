@@ -7,10 +7,10 @@ let currentItem = {};
 const addItemsToView = ()=>{
     const theList = document.querySelector("#the-list");
     const HTMLString = `
-    <div id="${Date.now()}">
-        <input type="checkbox" onchange="addOrUpdateItem(this)">
-        <input type="text" onkeypress="enterDetection(event)" onchange="addOrUpdateItem(this)">
-        <button type="button" onclick="deleteItem(this)">x</button>
+    <div class="item" id="${Date.now()}">
+        <input class="check" type="checkbox" onchange="addOrUpdateItem(this)">
+        <input class="txt" type="text" onkeypress="enterDetection(event)" onchange="addOrUpdateItem(this)">
+        <button class="btn" type="button" onclick="deleteItem(this)">x</button>
     </div>
     `;
     theList.insertAdjacentHTML("beforeend", HTMLString);
@@ -51,7 +51,7 @@ const deleteItem = (buttonEl) =>{
     list.splice(listArrIndex, 1);
 
     localStorage.setItem("data", JSON.stringify(list));
-    
+
     console.log(list);                                                              // TO REMOVE
 };
 
@@ -68,10 +68,10 @@ function enterDetection(e){
 list.forEach((item)=>{
     const theList = document.querySelector("#the-list");
     const HTMLString = `
-    <div id="${item.id}">
-        <input type="checkbox" onchange="addOrUpdateItem(this)" ${item.isChecked ? "checked" : ""}>
-        <input type="text" onkeypress="enterDetection(event)" onchange="addOrUpdateItem(this)" value="${item.title}">
-        <button type="button" onclick="deleteItem(this)">x</button>
+    <div class="item" id="${item.id}">
+        <input class="check" type="checkbox" onchange="addOrUpdateItem(this)" ${item.isChecked ? "checked" : ""}>
+        <input class="txt" type="text" onkeypress="enterDetection(event)" onchange="addOrUpdateItem(this)" value="${item.title}">
+        <button class="btn" type="button" onclick="deleteItem(this)">x</button>
     </div>
     `;
     theList.insertAdjacentHTML("beforeend", HTMLString);
