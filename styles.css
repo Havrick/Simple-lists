@@ -6,7 +6,9 @@
 }
 body {
     background-color: var(--softblue);
-    color:var(--charcoalgray)
+    color:var(--charcoalgray);
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
 }
 
 main{
